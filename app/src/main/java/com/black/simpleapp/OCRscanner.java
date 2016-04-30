@@ -54,6 +54,7 @@ public class OCRscanner {
 
     //method to select pictures from gallery
     public void selectFromGallery(){
+        requestCode = Config.REQUEST_CODE_FROM_GALLERY;
         Intent e = new Intent();
         e.setType("image/*");
         e.setAction(Intent.ACTION_GET_CONTENT);
@@ -71,13 +72,13 @@ public class OCRscanner {
         }
     }
 
-    /*public void onSelectedImage(){
+    public void onSelectedImage(){
         Log.d(Config.TAG, "onSelectedImage with path " + this.filePathOriginal);
 
-        filePathOriginal = Uri selected
+
         ImageProcessingThread thread = new ImageProcessingThread(this.mOcrScannerListener,
                 this.filePathOriginal, this.directoryPathOriginal, this.mActivity, this.trainedDataCode);
         thread.execute();
-    }*/
+    }
 
 }

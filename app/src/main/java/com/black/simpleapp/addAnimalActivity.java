@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -231,6 +233,7 @@ public class addAnimalActivity extends AppCompatActivity implements OcrScannerLi
             @Override
             public void onClick(View v) {
                 mOCRscanner.selectFromGallery();
+
             }
 
         });
@@ -249,6 +252,9 @@ public class addAnimalActivity extends AppCompatActivity implements OcrScannerLi
         }
         else if (resultCode == RESULT_OK && requestCode == Config.REQUEST_CODE_FROM_GALLERY){
             mOCRscanner.onSelectedImage();
+            Uri selectedImage = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
         }
     }
 
